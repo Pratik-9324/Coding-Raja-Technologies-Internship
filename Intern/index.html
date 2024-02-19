@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css" />
+    <title>Resume Generator</title>
+</head>
+
+<body>
+    <div class="container" id="cv-form">
+        <h1 class="text-center my-2">Resume Generator</h1>
+        <p class="text-center">By Pratik Dhake</p>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Personal Information</h3>
+                <div class="form-group">
+                    <label for="nameField">Name</label>
+                    <input type="text" id="nameField" placeholder="Enter Name" class="form-control">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="contactField">Phone Number</label>
+                    <input id="contactField" placeholder="Enter PhoneNo" class="form-control">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="addressField">Address</label>
+                    <textarea id="addressField" placeholder="Enter Address" class="form-control" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="imgField">Select your photo</label>
+                    <input id="imgField" type="file" class="form-control mt-3">
+                </div>
+                <p class="text-secondary my-3">Important Links</p>
+                <div class="form-group">
+                    <label for="fbField">Facebook</label>
+                    <input type="text" id="fbField" placeholder="Enter Facebook link" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="instaField">Instagram</label>
+                    <input type="text" id="instaField" placeholder="Enter Instagram link" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="linkedField">LinkedIn</label>
+                    <input type="text" id="linkedField" placeholder="Enter LinkedIn id" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>Professional Information</h3>
+                <div class="form-group mt-2">
+                    <label for="">Objective</label>
+                    <textarea id="objectiveField" rows="5" placeholder="Enter here" class="form-control" rows="2"></textarea>
+                </div>
+                <div class="form-group mt-2" id="we">
+                    <label for="">Work Experinence</label>
+                    <textarea rows="3" placeholder="Enter here" class="form-control weField" rows="2"></textarea>
+                    <div class="container text-center mt-2" id="weAddButton">
+                        <button onclick="addNewWEField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+                <div class="form-group mt-2" id="aq">
+                    <label for="">Academic Qualification</label>
+                    <textarea rows="3" placeholder="Enter here" class="form-control eqField" rows="2"></textarea>
+                    <div class="container text-center mt-2" id="aqAddButton">
+                        <button onclick="addNewAQField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center mt-3">
+            <button onclick="generateCV()" class="btn btn-primary btn-lg">Generate CV</button>
+        </div>
+    </div>
+    <div class="container" id="cv-template">
+        <div class="row">
+            <div class="col-md-4 text-center py-5 background">
+                <img src="https://toppng.com/public/uploads/preview/instagram-default-profile-picture-11562973083brycehrmyv.png"
+                    alt="" class="img-fluid myimg" id="imgTemplate">
+                <div class="container">
+                    <p id="nameT1">Pratik Dhake</p>
+                    <p id="contactT">+919561224361</p>
+                    <p id="addressT">PCCOER Boys Hostel Ravet,Pune</p>
+                    <hr>
+                    <p><a id="fbT" href="#1">https://www.facebook.com</a></p>
+                    <p><a id="instaT" href="#1">https://www.instagram.com</a></p>
+                    <p><a id="linkedT" href="#1">https://www.LinkedIn.com</a></p>
+                </div>
+            </div>
+            <div class="col-md-8 py-5">
+                <h1 id="nameT2" class="text-center" style="font-weight: 980">Pratik Dhake</h1>
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Objective</h3>
+                    </div>
+                    <div class="card-body">
+                        <p id="objectiveT">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id accusamus saepe dolorum
+                            molestiae velit sint reprehenderit eum expedita incidunt reiciendis magnam pariatur
+                            dignissimos sunt repellat excepturi libero ad eos, est temporibus hic recusandae deleniti
+                            cumque quaerat! Voluptates cumque esse laboriosam magni ipsam ex culpa. Quisquam fugiat
+                            minima unde deserunt enim.</p>
+                    </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Work Experience</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="weT">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, consequatur.</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, consequatur.</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, consequatur.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Academic Qualification</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="aqT">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, consequatur.</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, consequatur.</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, consequatur.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container mt-3 text-center">
+                    <button onclick="printCV()" class="btn background">Print CV</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
